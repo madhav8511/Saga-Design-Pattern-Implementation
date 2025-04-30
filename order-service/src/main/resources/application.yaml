@@ -1,0 +1,20 @@
+#spring:
+#  cloud:
+#    stream:
+#      function:
+#        definition : orderSupplier;paymentEventConsumer
+#      bindings:
+#        orderSupplier-out-0:
+#          destination: order-event
+#        paymentEventConsumer-in-0 :
+#          destination: payment-event
+
+server:
+  port: 8081
+
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
